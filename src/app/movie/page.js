@@ -7,9 +7,11 @@ import commonStyles from "@/app/styles/common.module.css"
 const Movie = () => {
   const [data, setData] = useState([]);
 
+  
   const fetchData = async () => {
+    
     const url = process.env.NEXT_PUBLIC_Url;
-
+    
     const options = {
       method: "GET",
       headers: {
@@ -18,10 +20,11 @@ const Movie = () => {
         "X-RapidAPI-Host": process.env.NEXT_PUBLIC_RapidAPI_Host,
       },
     };
-
+    
     try {
       const response = await fetch(url, options);
       const result = await response.json();
+      await new Promise(resolve => setTimeout(resolve, 2000));
       setData(result.titles)
     } catch (error) {
       console.error(error);
