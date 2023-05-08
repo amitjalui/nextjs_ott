@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import contactStyles from "@/app/contact/contact.module.css";
 import { Mulish } from "next/font/google";
 
@@ -9,8 +11,28 @@ const mulish = Mulish({
 });
 
 const ContactForm = () => {
+  const [user, setUser] = useState({
+    username: "",
+    email: "",
+    phone: "",
+    message: ""
+  });
+
+  const handleChange = (e) => {
+    const fieldName = e.target.name;
+    const value = e.target.value;
+    setUser(prev => ({...prev, [fieldName]: value}))
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+  }
+
+  console.log(user.username)
+  
   return (
-    <form className={contactStyles.contact_form}>
+    <form className={contactStyles.contact_form} onSubmit={handleSubmit}>
       <div className={contactStyles.input_field}>
         <label htmlFor="username" className={contactStyles.label}>
           Enter Your Name
@@ -20,6 +42,10 @@ const ContactForm = () => {
             id="username"
             placeholder="Enter your name"
             className={mulish.className}
+            value={user.name}
+            onChange={e => handleChange(e)}
+            autoComplete="off"
+            required
           />
         </label>
       </div>
@@ -33,6 +59,10 @@ const ContactForm = () => {
             id="email"
             placeholder="Enter your email"
             className={mulish.className}
+            value={user.email}
+            onChange={e => handleChange(e)}
+            autoComplete="off"
+            required
           />
         </label>
       </div>
@@ -46,6 +76,10 @@ const ContactForm = () => {
             id="phone"
             placeholder="Enter your phone no."
             className={mulish.className}
+            value={user.phone}
+            onChange={e => handleChange(e)}
+            autoComplete="off"
+            required
           />
         </label>
       </div>
@@ -60,6 +94,10 @@ const ContactForm = () => {
             rows={5}
             placeholder="Enter your message"
             className={mulish.className}
+            value={user.message}
+            onChange={e => handleChange(e)}
+            autoComplete="off"
+            required
           />
         </label>
       </div>
