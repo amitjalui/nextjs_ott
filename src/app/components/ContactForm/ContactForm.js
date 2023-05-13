@@ -29,7 +29,6 @@ const ContactForm = () => {
 
   }
 
-  console.log(user.username)
   
   return (
     <form className={contactStyles.contact_form} onSubmit={handleSubmit}>
