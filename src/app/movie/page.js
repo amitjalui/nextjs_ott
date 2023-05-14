@@ -7,9 +7,7 @@ import commonStyles from "@/app/styles/common.module.css"
 const Movie = () => {
   const [data, setData] = useState([]);
 
-  
   const fetchData = async () => {
-    
     const url = process.env.NEXT_PUBLIC_Url;
     
     const options = {
