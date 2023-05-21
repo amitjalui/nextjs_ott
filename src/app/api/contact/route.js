@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(req, res) {
   try {
-    const body = req.json();
+    const body = await req.json();
     await dbConnect();
 
     await Contact.create(body);
