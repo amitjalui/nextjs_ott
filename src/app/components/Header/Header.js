@@ -11,7 +11,7 @@ const Header = () => {
         <Link href="/">
           <Image 
             alt="logo" 
-            src="/logo.png" 
+            src="/nextjsOttlogo.png" 
             width={150}
             height={40}
           />
