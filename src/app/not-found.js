@@ -1,6 +1,6 @@
 import React from 'react';
 import commonStyles from '@/app/styles/common.module.css';
-import Link from 'next/Link';
+import Link from 'next/link';
 
 const NotFound = () => {
   return (
